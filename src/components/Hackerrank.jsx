@@ -33,7 +33,9 @@ const Hackerrank = () => {
   //filtering of data by start date
   let filterArray = arr.filter( item => {
     if(item.start_time>=today)
-    return item;
+      return item;
+    else
+      return ""
   })
   
   const display = () => {

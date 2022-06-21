@@ -34,6 +34,8 @@ const Leetcode = () => {
   let filterArray = arr.filter( item => {
     if(item.start_time>=today)
       return item;
+    else
+      return ""
   })
 
   const display = () => {

@@ -12,7 +12,6 @@ const Codechef = () => {
   //function to know todays date
   const todayDateFun = () => {
     var todayDate = new Date();
-    console.log(todayDate)
     var dd = String(todayDate.getDate()).padStart(2, '0');
     var mm = String(todayDate.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = todayDate.getFullYear();
@@ -23,7 +22,6 @@ const Codechef = () => {
     const response = await fetch(url)
     const data = await response.json()
     setContest(data)
-    // console.log(data)
   }
   //sorting
   let arr = contest;
@@ -37,6 +35,8 @@ const Codechef = () => {
   let filterArray = arr.filter( item => {
     if(item.start_time>=today)
       return item;
+    else
+      return ""
   })
 
   const display = () => {

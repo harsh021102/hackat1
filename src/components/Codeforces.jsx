@@ -20,7 +20,6 @@ const Codeforces = () => {
     const response = await fetch(url)
     const data = await response.json()
     setContest(data)
-    // console.log(data)
   }
   //sorting
   let arr = contest;
@@ -34,8 +33,9 @@ const Codeforces = () => {
   let filterArray = arr.filter( item => {
     if(item.start_time>=today)
       return item;
+    else
+      return ""
   })
-
   const display = () => {
     if(filterArray.length===0)
     return(

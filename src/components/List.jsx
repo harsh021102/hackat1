@@ -3,30 +3,31 @@ import { useEffect } from 'react';
 
 const List = ({index,name,start,end,duration,hours,status,link}) => {
     const [durationHMS,setDurationHMS] = useState("-");
+    // const [time,setTime] = useState(0);
     const[startdate,setStartDate] = useState("");
     const[enddate,setEndDate] = useState("");
-    function convertHMS(seconds) {
-        seconds = Number(seconds);
-        var d = Math.floor(seconds / (3600*24));
-        var h = Math.floor(seconds % (3600*24) / 3600);
-        var m = Math.floor(seconds % 3600 / 60);
-        var s = Math.floor(seconds % 60);
+    function convertHMS() {
+        duration = Number(duration);
+        var d = Math.floor(duration / (3600*24));
+        var h = Math.floor(duration % (3600*24) / 3600);
+        var m = Math.floor(duration % 3600 / 60);
+        var s = Math.floor(duration % 60);
         
-        var dDisplay = d > 0 ? d + (d == 1 ? " day " : " days ") : "";
-        var hDisplay = h > 0 ? h + (h == 1 ? " hour " : " hours ") : "";
-        var mDisplay = m > 0 ? m + (m == 1 ? " minute " : " minutes ") : "";
-        var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
-        return dDisplay + hDisplay + mDisplay + sDisplay;
+        var dDisplay = d > 0 ? d + (d === 1 ? " day " : " days ") : "";
+        var hDisplay = h > 0 ? h + (h === 1 ? " hour " : " hours ") : "";
+        var mDisplay = m > 0 ? m + (m === 1 ? " minute " : " minutes ") : "";
+        var sDisplay = s > 0 ? s + (s === 1 ? " second" : " seconds") : "";
+        setDurationHMS(dDisplay + hDisplay + mDisplay + sDisplay);
         }
     const startdateExtract=()=>
     {
         let s=start
         let index
-        if(start.indexOf(" ")!==-1)
+        // console.log(typeof start.indexOf(" "))
+        if(!(start.indexOf(" ")===-1))
             index = start.indexOf(" ")
-        else if(start.indexOf("T")!==-1)
+        else
             index = start.indexOf("T")
-        // console.log(index)
         let temp= s.slice(0,index)
         const hyphen1 = temp.indexOf("-")
         const hyphen2 = temp.indexOf("-",hyphen1+1)
@@ -40,11 +41,10 @@ const List = ({index,name,start,end,duration,hours,status,link}) => {
     {
         let s=end
         let index
-        if(start.indexOf(" ")!==-1)
+        if(!(start.indexOf(" ") === -1))
             index = start.indexOf(" ")
-        else if(start.indexOf("T")!==-1)
+        else
             index = start.indexOf("T")
-        console.log(index)
         let temp= s.slice(0,index)
         const hyphen1 = temp.indexOf("-")
         const hyphen2 = temp.indexOf("-",hyphen1+1)
@@ -55,11 +55,10 @@ const List = ({index,name,start,end,duration,hours,status,link}) => {
         setEndDate(tempAns)
     }
     useEffect(()=>{
-        const time= convertHMS(duration)
-        setDurationHMS(time)
+        convertHMS()
         startdateExtract()
         enddateExtract()
-    },[])
+    },[convertHMS,startdateExtract,enddateExtract])
 
   return (
     <div className='w-full shadow-md'>
@@ -71,7 +70,7 @@ const List = ({index,name,start,end,duration,hours,status,link}) => {
             <h1 className='text-white text-xl my-2 font-light font-outfit text-center'><span className='font-bold text-light-blue'>In 24 Hours:</span> {hours}</h1>
             <h1 className='text-white text-xl my-2 font-light font-outfit text-center'><span className='font-bold text-light-blue'>Status:</span> {status}</h1>
             <button className='flex flex-wrap m-auto text-xl font-bold shadow-md rounded-md bg-dark-blue text-white px-4 py-2 '>
-                <a href={link} target="_blank">Go to Contest</a>
+                <a href={link} rel="noopener">Go to Contest</a>
             </button>
         </div>
         <div className='hidden border-b-4 border-light-blue sm:w-full bg-dark-black sm:grid grid-cols-7 shadow-md gap-4 py-4 rounded-md px-2'>
@@ -82,7 +81,7 @@ const List = ({index,name,start,end,duration,hours,status,link}) => {
             <h1 className='text-white text-xl my-auto font-light font-outfit text-center'>{hours}</h1>
             <h1 className='text-white text-xl my-auto font-light font-outfit text-center'>{status}</h1>
             <button className='flex flex-wrap m-auto text-md font-bold shadow-md rounded-md bg-dark-blue text-white px-4 py-2 hover:bg-light-blue transition-all duration-200 hover:border-b-4'>
-                <a href={link} target="_blank">Go to Contest</a>
+                <a href={link} rel="noopener">Go to Contest</a>
             </button>
         </div>
     </div>
