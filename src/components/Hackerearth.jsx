@@ -33,7 +33,6 @@ const Hackerearth = () => {
 
 
   const display = () => {
-    filterArray.reverse()
     if(filterArray.length===0)
     return(
       <h1 className='text-4xl text-white mx-auto'>No contest found</h1>

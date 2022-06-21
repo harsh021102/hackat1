@@ -27,7 +27,6 @@ const Codechef = () => {
   //sorting
   let arr = contest
   let filterArray = arr.filter( item => {
-    console.log(arr)
     if(item.start_time>=today)
       return item;
     else
