@@ -40,9 +40,6 @@ const Codeforces = () => {
     }
   }
 
-
-  sortByDate(arr);
-  // filterArray(arr);
   useEffect(()=>{
     todayDate();
     contestsFun()

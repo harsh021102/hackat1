@@ -46,8 +46,6 @@ const Codechef = () => {
     }
   }
 
-  // sortByDate(arr);
-  // filterArray(arr);
   useEffect(()=>{
     todayDateFun();
     contestsFun();

@@ -41,8 +41,6 @@ const Hackerrank = () => {
     }
   }
 
-  sortByDate(arr);
-  // filterArray(arr);
   useEffect(()=>{
     todayDate();
     contestsFun()

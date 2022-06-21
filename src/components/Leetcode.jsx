@@ -43,8 +43,6 @@ const Leetcode = () => {
     }
   }
 
-  sortByDate(arr);
-  // filterArray(arr);
   useEffect(()=>{
     todayDate();
     contestsFun()

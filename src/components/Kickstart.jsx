@@ -44,8 +44,6 @@ const Kickstart = () => {
   }
 
 
-  sortByDate(arr);
-  // filterArray(arr);
   useEffect(()=>{
     todayDate();
     contestsFun()

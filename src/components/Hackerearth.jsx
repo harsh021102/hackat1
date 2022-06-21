@@ -43,8 +43,6 @@ const Hackerearth = () => {
     }
   }
 
-  sortByDate(arr);
-  // filterArray(arr);
   useEffect(()=>{
     todayDate();
     contestsFun()
