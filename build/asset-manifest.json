@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2baf7802.css",
+    "main.js": "/static/js/main.79f74991.js",
+    "static/media/leetcode.png": "/static/media/leetcode.d500bb7c08811162a15d.png",
+    "static/media/kickstart.jpg": "/static/media/kickstart.e487af68228d809b583e.jpg",
+    "static/media/hackerrank.png": "/static/media/hackerrank.58fcdad01a2d9e78d453.png",
+    "static/media/codeforces.png": "/static/media/codeforces.73efc2ba8645c4e65d5d.png",
+    "static/media/hackerearth.jpg": "/static/media/hackerearth.4db5b3aab7a95d8640a0.jpg",
+    "index.html": "/index.html",
+    "main.2baf7802.css.map": "/static/css/main.2baf7802.css.map",
+    "main.79f74991.js.map": "/static/js/main.79f74991.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2baf7802.css",
+    "static/js/main.79f74991.js"
+  ]
+}

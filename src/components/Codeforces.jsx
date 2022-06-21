@@ -21,14 +21,7 @@ const Codeforces = () => {
     const data = await response.json()
     setContest(data)
   }
-  //sorting
   let arr = contest;
-  const sortByDate = arr => {
-    const sorter = (a, b) => {
-      return new Date(a.start_time).getTime() - new Date(b.start_time).getTime();
-    }
-    arr.sort(sorter);
-  };
   //filtering of data by start date
   let filterArray = arr.filter( item => {
     if(item.start_time>=today)
@@ -37,6 +30,7 @@ const Codeforces = () => {
       return ""
   })
   const display = () => {
+    filterArray.reverse()
     if(filterArray.length===0)
     return(
       <h1 className='text-4xl text-white mx-auto'>No contest found</h1>

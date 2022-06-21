@@ -1,7 +1,6 @@
 {
   "name": "hackat1",
   "version": "0.1.0",
-  "homepage": "https://harsh021102.github.io/hackat1",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.2.1",

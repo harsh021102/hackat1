@@ -21,16 +21,8 @@ const Hackerrank = () => {
     setContest(data)
     // console.log(data)
   }
-  //sorting
-  let arr = contest;
-  const sortByDate = arr => {
-    const sorter = (a, b) => {
-      console.log(contest)
-      return new Date(a.start_time).getTime() - new Date(b.start_time).getTime();
-    }
-    arr.sort(sorter);
-  };
   //filtering of data by start date
+  let arr = contest;
   let filterArray = arr.filter( item => {
     if(item.start_time>=today)
       return item;
@@ -39,6 +31,7 @@ const Hackerrank = () => {
   })
   
   const display = () => {
+    filterArray.reverse()
     if(filterArray.length===0)
     return(
       <h1 className='text-4xl text-white mx-auto'>No contest found</h1>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import List from './List';
 import Heading from './Heading';
+import { data } from 'autoprefixer';
 
 const Codechef = () => {
   const url = 'https://kontests.net/api/v1/code_chef' 
@@ -24,15 +25,9 @@ const Codechef = () => {
     setContest(data)
   }
   //sorting
-  let arr = contest;
-  const sortByDate = arr => {
-    const sorter = (a, b) => {
-      return new Date(a.start_time).getTime() - new Date(b.start_time).getTime();
-    }
-    arr.sort(sorter);
-  };
-  //filtering of data by start date
+  let arr = contest
   let filterArray = arr.filter( item => {
+    console.log(arr)
     if(item.start_time>=today)
       return item;
     else
@@ -40,6 +35,7 @@ const Codechef = () => {
   })
 
   const display = () => {
+    filterArray.reverse()
     if(filterArray.length===0)
     return(
       <h1 className='text-4xl text-white mx-auto'>No contest found</h1>
@@ -50,7 +46,7 @@ const Codechef = () => {
     }
   }
 
-  sortByDate(arr);
+  // sortByDate(arr);
   // filterArray(arr);
   useEffect(()=>{
     todayDateFun();
